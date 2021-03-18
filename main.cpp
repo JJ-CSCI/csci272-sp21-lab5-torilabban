@@ -5,6 +5,62 @@
 //------------------------------
 
 // Write the assignment code here
+class Real{
+  protected:
+  double a;
+
+  public:
+  Real(double c){a=c;} 
+  Real(){}
+  double GetReal(){
+    return a;} 
+  double operator+(double num){
+    return a+num;
+  }
+};
+
+class Complex:protected Real{
+  protected:
+  double a1;
+  //double b2;
+  
+  public:
+  Complex(){}
+  Complex(double c2,double d3) {
+  Real()=c2; //b2=c2;
+  a1=d3;} 
+
+  double GetImaginary() const {
+  return a1;
+  //return b2;
+  }
+
+ double operator+ (double num2){
+   return a1+num2;
+   //return b2+num2;
+ }
+};
+
+class Surreal: protected Complex{
+  protected:
+  double a3,b3,c3;
+
+  public:
+  
+  Surreal(double d3,double e3,double f3){
+    a1=d3;
+    a1=e3;
+    c3=f3;
+  }
+  double GetSurreal(){
+    return c3;}
+  double operator+ (double num3){
+    return GetReal() + num3;
+    return GetImaginary() + num3;
+    return c3 + num3;
+  }
+
+};
 
 
 //------------------------------
